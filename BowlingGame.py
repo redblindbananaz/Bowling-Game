@@ -1,3 +1,15 @@
+"""
+Organisation of the commits format:
+
+[Feature]: Commits that introduce new functionality or features to the codebase.
+[Bugfix]: Commits that address and fix bugs or defects, syntax errors in the codebase.
+[Refactoring]:Commits that improve the structure, design, or readability of the code without changing its functionality. 
+[Testing]:Commits related to testing activities, such as adding or modifying test cases, fixing test failures, or improving the overall test suite.
+[Style]:Commits that update coding style, formatting, or code conventions. This could include changes to indentation, line spacing, variable naming, or other style-related updates.
+
+"""
+
+
 class BowlingGame:
     def __init__(self):
         self.rolls = []
