@@ -27,7 +27,7 @@ class TestBowlingGame(unittest.TestCase):
         self.game.roll(10)
         self.game.roll(4)
         self.game.roll(3)
-        self.rollMany(0, 16)
+        self.rollMany(0, 18)  # should be 18
         assert self.game.score() == 24
 
     def testPerfectGame(self):
@@ -35,7 +35,7 @@ class TestBowlingGame(unittest.TestCase):
         assert self.game.score() == 300
 
     def testAllSpare(self):
-        self.rollMany(5, 21)
+        self.rollMany(5, 21)  # should be 20
         assert self.game.score() == 150
 
     def rollMany(self, pins, rolls):
