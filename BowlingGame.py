@@ -23,7 +23,7 @@ class BowlingGame:
         result = 0
         rollIndex = 0
         for frameIndex in range(10):
-            if frameIndex in range(10):
+            if self.isStrike(rollIndex):
                 result += self.strikeScore(rollIndex)
                 rollIndex += 1
             elif self.isSpare(rollIndex):
@@ -32,6 +32,21 @@ class BowlingGame:
             else:
                 result += self.frameScore(rollIndex)
             rollIndex += 2
+            # Addition to the code to add requirement for if a strike onthe 10th frame:
+
+            if frameIndex == 9:  # Check if it's the 10th frame
+                # If the first roll of 10th frame is a strike
+                if self.isStrike(rollIndex - 1):
+                    # Add the first bonus roll score
+                    result += self.rolls[rollIndex]
+                    # If the second roll of 10th frame is also a strike
+                    if self.isStrike(rollIndex):
+                        # Add the second bonus roll score
+                        result += self.rolls[rollIndex + 1]
+                # If the second roll of 10th frame is a spare
+                elif self.isSpare(rollIndex - 2):
+                    result += self.rolls[rollIndex]  # Add the bonus roll score
+
         return result
 
     def isStrike(self, rollIndex):
