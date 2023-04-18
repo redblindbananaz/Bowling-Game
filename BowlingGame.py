@@ -9,6 +9,7 @@ Organisation of the commits format:
 [Markdown]: Commits that update the Markdown file documenting the project processes
 
 """
+# Please refer to Markdown File documenting processes for this project
 
 
 class BowlingGame:
@@ -31,7 +32,7 @@ class BowlingGame:
             else:
                 result += self.frameScore(rollIndex)
             rollIndex += 2
-            return result
+        return result
 
     def isStrike(self, rollIndex):
         return self.rolls[rollIndex] == 10
