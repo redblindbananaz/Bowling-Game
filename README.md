@@ -23,6 +23,7 @@ In this project, I will try to demonstrate the following:
   * [Refactoring]:Commits that improve the structure, design, or readability of the code without changing its functionality. 
   * [Testing]:Commits related to testing activities, such as adding or modifying test cases, fixing test failures, or improving the overall test suite.
   * [Style]:Commits that update coding style, formatting, or code conventions. This could include changes to indentation, line spacing, variable naming, or other style-related updates.
+  * [Markdown]: Commits that update the Markdown file documenting the project processes
 * Refer to the Test Plan section for details on testing the project.
 
 ## Test Plan
