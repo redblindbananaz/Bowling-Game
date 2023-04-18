@@ -14,7 +14,7 @@
 
 ## Debugging:
 
-###By inspection:
+### By inspection:
 
 - _Syntax:_ def **stickeScore**(self,rollIndex) **To** def **strikeScore**(self, rollIndex):
 - _Syntax:_ result += self.**StrikeScore**(rollIndex) **To** result += self.**strikeScore**(rollIndex), Keeping consistency with camelCase convention of the original code.
@@ -22,3 +22,8 @@
 - _Syntax:_ The return result statement is indented too far to the left, causing it to be inside the for loop, which would result in an incorrect calculation of the score.
 - _Syntax:_ def testOneSpare(self): already exist, the second method under that name should refer logically to all Spare.
   def **testOneSpare**(self) **To** **testAllSapre**(self)
+- _Syntax:_ if frameIndex in range(10): should be:self.isStrike(rollIndex): as we chacking condition for the different scoring( strike, spare, openframe)
+
+## Refactoring:
+
+### By inspection:
