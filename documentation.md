@@ -28,8 +28,6 @@
 
 - _Syntax:_ def testOneSpare(self): already exist, the second method under that name should refer logically to all Spare`def testOneSpare(self) To  def testAllSapre(self)`.
 
-- **_Logic:_** In `def score(self):`, the condition `if frameIndex in range(10):` is unnecessary, as frameIndex is already being iterated over in the for loop using range(10)
-
 #### By Testing:
 
 - **_Logic:_** Need additional statement fo check in `def isSpare(self, rollIndex):` that is is not being a strike by adding: `and not self.isStrike(rollIndex)`

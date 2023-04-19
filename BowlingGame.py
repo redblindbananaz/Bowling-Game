@@ -17,21 +17,25 @@ class BowlingGame:
         self.rolls = []
 
     def roll(self, pins):
+        # Adding any attempt to roll a negative number of pins will result in a ValueError with the message "Cannot roll a negative number of pins."
+        if pins < 0:
+            raise ValueError("Cannot roll a negative number of pins.")
         self.rolls.append(pins)
 
     def score(self):
         result = 0
         rollIndex = 0
         for frameIndex in range(10):
-            if self.isStrike(rollIndex):
-                result += self.strikeScore(rollIndex)
-                rollIndex += 1
-            elif self.isSpare(rollIndex):
-                result += self.spareScore(rollIndex)
-                rollIndex += 2
-            else:
-                result += self.frameScore(rollIndex)
-                rollIndex += 2
+            if frameIndex in range(10):
+                if self.isStrike(rollIndex):
+                    result += self.strikeScore(rollIndex)
+                    rollIndex += 1
+                elif self.isSpare(rollIndex):
+                    result += self.spareScore(rollIndex)
+                    rollIndex += 2
+                else:
+                    result += self.frameScore(rollIndex)
+                    rollIndex += 2
 
         return result
 
