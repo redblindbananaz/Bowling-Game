@@ -38,6 +38,20 @@ class TestBowlingGame(unittest.TestCase):
         self.rollMany(5, 21)  # should be 20
         assert self.game.score() == 150
 
+    def testMixedGame(self):
+        self.game.roll(5)
+        self.game.roll(5)
+        self.game.roll(10)
+        self.game.roll(10)
+        self.game.roll(0)
+        self.game.roll(3)
+        self.rollMany(1, 16)
+        assert self.game.score() == 68
+
+    def testNegatifValue(self):
+        with self.assertRaises(ValueError):
+            self.game.roll(-5)
+
     def rollMany(self, pins, rolls):
         for i in range(rolls):
             self.game.roll(pins)
