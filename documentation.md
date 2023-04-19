@@ -37,8 +37,8 @@
 - **_Logic:_** With this modification, `def spareScore(self, rollIndex):` would `return 10 + self.rolls[rollIndex+1]` for the 10th frame (index 9), where rollIndex + 2 would be out of bounds for the self.rolls list, and the calculated score would be correct so adding conditional statment correct the issue of `defectID:ErrIndex001` reported in the test case `BPTC003`
 
 - **_Logic:_** `def testNegatifValue(self):
-  with self.assertRaises(ValueError):
-  `self.game.roll(-5)` Failed test.
+with self.assertRaises(ValueError):
+`self.game.roll(-5)` Failed test.
   No implementation of handling errors due to negative values in the bowling game. Changes have been made with the following implementation:
   ```
   def roll(self, pins):
@@ -128,3 +128,23 @@ if self.isStrike(roll_index):
 - `score += 10 + self.strikeBonus(roll_index)` - This line adds 10 to the score for the current frame (since a strike is worth 10 points on its own), and then adds the "strike bonus" to the score. The strike bonus is the sum of the next two rolls, and is calculated using the strikeBonus method.
 - `score += self._score_helper(frame + 1, roll_index + 1)` - This line recursively calls the \_score_helper method with an updated frame and roll_index. Since a strike counts as a complete frame on its own, the frame variable is incremented by 1. And since a strike only uses one roll, the roll_index variable is incremented by 1 as well. The result of this recursive call is added to the score.
 - Same logic for the other conditionals
+
+##### Commenting:
+
+Adding a helper for the code:
+
+````HELPER COMMENT FOR CODE
+
+- The __init__ method initializes the rolls attribute, which is a list that will be used to keep track of the number of pins knocked down by each roll.
+
+- The roll method adds the number of pins knocked down by each roll to the rolls list. If the number of pins is negative, it raises a ValueError with the message "Cannot roll a negative number of pins."
+
+- The _score_helper method is a helper method that takes two arguments: frame, which is the current frame number (1 to 10), and roll_index, which is the index of the current roll in the rolls list.
+The method uses recursion to calculate the score for each frame by checking whether the current roll is a strike, a spare, or a regular roll.
+It then adds the appropriate bonus to the score and recursively calls itself with the next frame and roll index. The method returns the total score for the game.
+
+- The isStrike, isSpare, and sumOfBallInFrame methods are helper methods that check whether the current roll is a strike, a spare, or a regular roll, respectively.
+
+- The strikeBonus and spareBonus methods calculate the bonus for a strike or a spare, respectively, by adding the number of pins knocked down in the next one or two rolls, respectively.```
+
+````

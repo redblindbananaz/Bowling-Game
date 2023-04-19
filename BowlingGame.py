@@ -13,11 +13,11 @@ Organisation of the commits format:
 
 
 class BowlingGame:
+
     def __init__(self):
         self.rolls = []
 
     def roll(self, pins):
-        # Adding any attempt to roll a negative number of pins will result in a ValueError with the message "Cannot roll a negative number of pins."
         if pins < 0:
             raise ValueError("Cannot roll a negative number of pins.")
         self.rolls.append(pins)
@@ -61,3 +61,18 @@ class BowlingGame:
 
     def spareBonus(self, rollIndex):
         return self.rolls[rollIndex+2]
+
+    '''
+HELPER FOR CODE
+
+# The __init__ method initializes the rolls attribute, which is a list that will be used to keep track of the number of pins knocked down by each roll.
+
+# The roll method adds the number of pins knocked down by each roll to the rolls list. If the number of pins is negative, it raises a ValueError with the message "Cannot roll a negative number of pins."
+
+# The _score_helper method is a helper method that takes two arguments: frame, which is the current frame number (1 to 10), and roll_index, which is the index of the current roll in the rolls list. The method uses recursion to calculate the score for each frame by checking whether the current roll is a strike, a spare, or a regular roll. It then adds the appropriate bonus to the score and recursively calls itself with the next frame and roll index. The method returns the total score for the game.
+
+# The isStrike, isSpare, and sumOfBallInFrame methods are helper methods that check whether the current roll is a strike, a spare, or a regular roll, respectively.
+
+# The strikeBonus and spareBonus methods calculate the bonus for a strike or a spare, respectively, by adding the number of pins knocked down in the next one or two rolls, respectively.
+
+'''
