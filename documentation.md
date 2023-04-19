@@ -36,7 +36,7 @@
 
 - **_Logic:_** Check if ther are at least 2 more rolls remaining in the self.rolls list after the current rollindex. If condition is True, there is enough rolls and the first expression is valid in `def strikeScore(self, rollIndex):` by adding: `if rollIndex + 2 < len(self.rolls) else 10`
 
-- **_Logic:_** With this modification, `def spareScore(self, rollIndex):` would `return 10 + self.rolls[rollIndex+1]` for the 10th frame (index 9), where rollIndex + 2 would be out of bounds for the self.rolls list, and the calculated score would be correct so adding conditional statment correct the issue.
+- **_Logic:_** With this modification, `def spareScore(self, rollIndex):` would `return 10 + self.rolls[rollIndex+1]` for the 10th frame (index 9), where rollIndex + 2 would be out of bounds for the self.rolls list, and the calculated score would be correct so adding conditional statment correct the issue of `defectID:ErrIndex001` reported in the test case `BPTC003`
 
 ## Refactoring:
 
@@ -45,3 +45,5 @@
 All **_Logic:_** Bugs have been fixed and the changes made to the code correcting its behavior and align it with the intended logic or rules.
 
 #### Organise:
+
+ErrIndex001
