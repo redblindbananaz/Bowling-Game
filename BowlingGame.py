@@ -23,38 +23,41 @@ class BowlingGame:
         self.rolls.append(pins)
 
     def score(self):
-        result = 0
-        rollIndex = 0
-        for frameIndex in range(10):
-            if frameIndex in range(10):
-                if self.isStrike(rollIndex):
-                    result += self.strikeScore(rollIndex)
-                    rollIndex += 1
-                elif self.isSpare(rollIndex):
-                    result += self.spareScore(rollIndex)
-                    rollIndex += 2
-                else:
-                    result += self.frameScore(rollIndex)
-                    rollIndex += 2
+        # Helper for recursion
+        return self._score_helper(0, 0)
 
-        return result
+    def _score_helper(self, frame, roll_index):
+        # Use of recursion
+        if frame == 10:
+            return 0
+
+        score = 0
+        if self.isStrike(roll_index):
+            score += 10 + self.strikeBonus(roll_index)
+            score += self._score_helper(frame + 1, roll_index + 1)
+        elif self.isSpare(roll_index):
+            score += 10 + self.spareBonus(roll_index)
+            score += self._score_helper(frame + 1, roll_index + 2)
+        else:
+            score += self.sumOfBallInFrame(roll_index)
+            score += self._score_helper(frame + 1, roll_index + 2)
+
+        return score
+
+    # Definition of the 3 types of scoring
 
     def isStrike(self, rollIndex):
         return self.rolls[rollIndex] == 10
 
     def isSpare(self, rollIndex):
-        # Need to add conditional for not being a strike
-        return self.rolls[rollIndex] + self.rolls[rollIndex+1] == 10 and not self.isStrike(rollIndex)
+        return self.sumOfBallInFrame(rollIndex) == 10
 
-    def strikeScore(self, rollIndex):
-        # Check if ther are at least 2 more rolls remaining in the self.rolls list after the current rollindex. If condition is True, there is enough rolls and the first expression is valid. That was the the cause of the indexing error.
-        return 10 + self.rolls[rollIndex+1] + self.rolls[rollIndex+2]if rollIndex + 2 < len(self.rolls) else 10
-
-    def spareScore(self, rollIndex):
-        if rollIndex + 2 < len(self.rolls):
-            return 10 + self.rolls[rollIndex+2]
-        else:
-            return 10 + self.rolls[rollIndex+1]
-
-    def frameScore(self, rollIndex):
+    def sumOfBallInFrame(self, rollIndex):
         return self.rolls[rollIndex] + self.rolls[rollIndex + 1]
+    # Bonuses:
+
+    def strikeBonus(self, rollIndex):
+        return self.rolls[rollIndex+1] + self.rolls[rollIndex+2]
+
+    def spareBonus(self, rollIndex):
+        return self.rolls[rollIndex+2]
