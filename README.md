@@ -86,7 +86,7 @@ No specific license for this project, code has been provided by Whitecliffe Tech
 
 ## Acknowledgements
 
-Thank you to Vivian Wang, for providing all the resources and support through this course.
+Thanks to Vivian Wang and Whitecliffe Technolgy, Christchurch, NZ, for providing all the resources and support through this course.
 
 ## Contact Information
 
