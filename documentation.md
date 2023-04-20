@@ -48,6 +48,36 @@ with self.assertRaises(ValueError):
     self.rolls.append(pins)
   ```
 
+## Testing:
+
+```./test_bowling_game.py::TestBowlingGame::testAllOnes Passed
+
+./test_bowling_game.py::TestBowlingGame::testAllSpare Passed
+
+./test_bowling_game.py::TestBowlingGame::testGutterGame Passed
+
+./test_bowling_game.py::TestBowlingGame::testMixedGame Passed
+
+./test_bowling_game.py::TestBowlingGame::testNegatifValue Passed
+
+./test_bowling_game.py::TestBowlingGame::testOneSpare Passed
+
+./test_bowling_game.py::TestBowlingGame::testOneStrike Passed
+
+./test_bowling_game.py::TestBowlingGame::testPerfectGame Passed
+
+Total number of tests expected to run: 8
+Total number of tests run: 8
+Total number of tests passed: 8
+Total number of tests failed: 0
+Total number of tests failed with errors: 0
+Total number of tests skipped: 0
+
+Finished running tests!
+```
+
+Iterative testing methodology have been applied through this project. Test Cases documented in Identifier BPTCxxx following the guide lines of the test plan PythBowlTP001.
+
 ## Refactoring:
 
 ##### By inspection and Testing:
@@ -148,3 +178,19 @@ It then adds the appropriate bonus to the score and recursively calls itself wit
 - The strikeBonus and spareBonus methods calculate the bonus for a strike or a spare, respectively, by adding the number of pins knocked down in the next one or two rolls, respectively.```
 
 ````
+
+## Conclusion:
+
+- Application of a range of software quality assurance techniques to assess correctness of systems
+
+- Plan, design, execute and manage testing activities using manual and automated techniques to assess the software quality.
+
+- Application of programme maintenance techniques, including bug fixing and testing, optimisation and refactoring to ensure software efficiency and improve the software performance.
+
+- Organisation of source code by using source and version control tools for collaboration and manage changes to course code over time via Github
+
+- Production of documentation to assist users and developers to use the software product.
+
+- All project requirements have been met.
+
+- Project is ready for the next phase of development.
